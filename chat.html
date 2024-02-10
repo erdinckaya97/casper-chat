@@ -3,11 +3,12 @@
 <head>
     <title>Chat Uygulaması</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <div id="chat">
         <div id="messages"></div>
-        <input id="username" type="text" placeholder="İsminizi yazın..." />
+        <input id="username" type="text" placeholder="İsminizi yaz..." />
         <input id="input" type="text" placeholder="Mesajınızı yazın..." onkeydown="if(event.key === 'Enter') sendMessage()" />
     </div>
     <script src="script.js"></script>
