@@ -21,3 +21,22 @@ function sendMessage() {
     localStorage.setItem("username", username.value);
     input.value = "";
 }
+
+var socket = io();
+
+function sendMessage() {
+    var username = document.getElementById("username");
+    var input = document.getElementById("input");
+    var messages = document.getElementById("messages");
+
+    var message = username.value + ": " + input.value;
+    socket.emit('chat message', message);
+    input.value = '';
+}
+
+socket.on('chat message', function(msg){
+    var messages = document.getElementById("messages");
+    var messageElement = document.createElement("div");
+    messageElement.textContent = msg;
+    messages.appendChild(messageElement);
+});
